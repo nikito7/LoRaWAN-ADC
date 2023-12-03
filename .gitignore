@@ -1,0 +1,17 @@
+# Exclude any Visual Studio Code and PlatformIO folders/files
+.pio
+.vscode
+.vs
+.pioenvs
+.piolibdeps
+*.zip
+*.rar
+
+# Exclude all contents from any keyfiles folder
+keyfiles/**
+# Except following example file
+!keyfiles/example__lorawan-keys.h
+
+# Exlude lib and include project folders (PlatformIO)
+/lib/
+/include/
