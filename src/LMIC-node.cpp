@@ -383,24 +383,6 @@ void hanBlink()
     #endif
 }
 
-void errorBlink()
-{
-    #ifdef ESP8266
-    digitalWrite(2, LOW);
-    delay(1000);
-    digitalWrite(2, HIGH);
-    delay(1000);
-    digitalWrite(2, LOW);
-    delay(1000);
-    digitalWrite(2, HIGH);
-    delay(1000);
-    digitalWrite(2, LOW);
-    delay(1000);
-    digitalWrite(2, HIGH);
-    delay(1000);
-    #endif
-}
-
 void processWork(ostime_t doWorkJobTimeStamp)
 {
     // This function is called from the doWorkCallback() 
@@ -417,8 +399,7 @@ void processWork(ostime_t doWorkJobTimeStamp)
     // # # # # # # # # # #
 
     adcVal = analogRead(A0);
-    delay(500);
-    adcVal = analogRead(A0);
+    hanBlink();
 
     // # # # # # # # # # #
     // EASYHAN ADC EOF
@@ -439,7 +420,9 @@ void processWork(ostime_t doWorkJobTimeStamp)
         {
             // do nothing
             txFail++;
-            errorBlink();
+            hanBlink();
+            hanBlink();
+            hanBlink();
         }
         else
         {
